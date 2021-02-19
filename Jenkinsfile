@@ -6,13 +6,14 @@ pipeline {
     stage('Maven Install') {
 	agent any
       	steps {
-		sh 'mvn -f pom.xml clean install'
+		sh 'mvn -f ./first/pom.xml clean install'
       	}
     }
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t nitesh99sharma/hello-world:4.0 .'
+        sh 'docker-compose build'
+	sh 'docker-compose up -d'
       }
     }
 	stage ('Docker Push') {

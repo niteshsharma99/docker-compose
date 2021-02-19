@@ -1,21 +1,6 @@
 version: '3'
 services:
-  mycontainer:
-    build:
-      context: ./first
-      dockerfile: Dockerfile
-    image: nitesh99sharma/simple-hello:1.0
-
-    networks:
-       - mynet
+  server:
+    build: ./first
     ports:
-      - 80:5000
-    volumes:
-      - myvol:/data
-
-
-volumes:
-   myvol:
-
-networks:
-   mynet:
+      - "8081:8081"
