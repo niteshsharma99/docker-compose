@@ -20,7 +20,7 @@ pipeline {
       agent any
       steps {
         withDockerRegistry([ credentialsId: "dockerhub_id", url: "" ]) {
-          sh 'docker push nitesh99sharma/docker_compose_server'
+          sh 'docker push nitesh99sharma/hello_world:1.0'
         }
       }
 	}
